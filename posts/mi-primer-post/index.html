@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Mi primer post — Mi Blog</title>
+    <link rel="stylesheet" href="../../styles.css">
+</head>
+<body>
+<header class="site-header">
+    <h1><a href="../../">Mi Blog</a></h1>
+    <div class="actions">
+        <a class="btn" href="../../">← Volver</a>
+        <button id="themeToggle" aria-pressed="false">🌙</button>
+    </div>
+</header>
+
+<main>
+    <article class="card">
+        <h1>Mi primer post</h1>
+        <time datetime="2025-09-20" class="muted">20 de septiembre de 2025</time>
+        <p>Bienvenido a mi blog estático en GitHub Pages. Aquí explico cómo
+            montar un blog solo con HTML, CSS y JS vanilla, sin frameworks.</p>
+        <h2>Secciones</h2>
+        <ul>
+            <li>Estructura de carpetas</li>
+            <li>Enlaces relativos</li>
+            <li>Despliegue en Pages</li>
+        </ul>
+
+        <hr>
+        <section id="likeBox">
+            <button id="likeBtn">👍 Me gusta</button>
+            <span id="likeCount" class="muted"></span>
+        </section>
+        <p class="muted"><button id="copyLink">Copiar enlace</button></p>
+    </article>
+</main>
+
+<footer class="site-footer"><small>© 2025 Tu Nombre</small></footer>
+
+<script>
+    // Reutiliza el mismo tema que en home
+    (function(){
+        const THEME_KEY="theme";
+        const saved = localStorage.getItem(THEME_KEY) || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+        const btn = document.getElementById("themeToggle");
+        function apply(t){ document.documentElement.dataset.theme=t; btn.textContent = t==="dark" ? "☀️" : "🌙"; btn.setAttribute("aria-pressed", t==="dark"); }
+        apply(saved);
+        btn.addEventListener("click", ()=>{ const next=document.documentElement.dataset.theme==="dark"?"light":"dark"; localStorage.setItem(THEME_KEY,next); apply(next); });
+    })();
+
+    // Interacción: likes por post con localStorage
+    (function(){
+        const KEY = "likes:mi-primer-post";
+        const btn = document.getElementById("likeBtn");
+        const cnt = document.getElementById("likeCount");
+        let likes = Number(localStorage.getItem(KEY) || 0);
+        cnt.textContent = likes ? `${likes} ${likes===1?"like":"likes"}` : "Sin likes aún";
+        btn.addEventListener("click", ()=>{
+            likes++; localStorage.setItem(KEY, String(likes));
+            cnt.textContent = `${likes} ${likes===1?"like":"likes"}`;
+        });
+    })();
+
+    // Copiar enlace
+    document.getElementById("copyLink").addEventListener("click", async ()=>{
+        await navigator.clipboard.writeText(location.href);
+        alert("Enlace copiado al portapapeles");
+    });
+</script>
+</body>
+</html>

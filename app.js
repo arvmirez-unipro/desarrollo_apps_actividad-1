@@ -8,14 +8,17 @@ fetch("posts.json")
 
 function render(items){
   list.innerHTML = items.map(p => `
-    <article class="card">
-      <h2><a href="posts/${p.slug}/">${p.title}</a></h2>
-      <time datetime="${p.date}">${new Date(p.date).toLocaleDateString('es-ES',{year:'numeric',month:'long',day:'numeric'})}</time>
-      <p>${p.excerpt}</p>
-      <p class="muted">~${estimateReadingTime(p.slug)} min de lectura</p>
-      <p><a class="btn" href="posts/${p.slug}/">Leer →</a></p>
-    </article>
-  `).join("") || "<p>No hay entradas.</p>";
+    <div class="col-12 col-md-6 col-lg-4">
+      <article class="card h-100">
+        <div class="card-body">
+          <h2 class="h5 card-title"><a class="text-decoration-none" href="posts/${p.slug}/">${p.title}</a></h2>
+          <time class="text-muted d-block mb-1" datetime="${p.date}">${new Date(p.date).toLocaleDateString('es-ES',{year:'numeric',month:'long',day:'numeric'})}</time>
+          <p class="card-text">${p.excerpt}</p>
+          <a class="btn btn-outline-secondary" href="posts/${p.slug}/">Leer →</a>
+        </div>
+      </article>
+    </div>
+  `).join("") || "<p class='text-muted'>No hay entradas.</p>";
 }
 
 search?.addEventListener("input", (e)=>{

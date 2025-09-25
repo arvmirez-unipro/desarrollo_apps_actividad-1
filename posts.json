@@ -1,14 +1,14 @@
 [
   {
-    "title": "Mi primer post",
-    "date": "2025-09-20",
-    "slug": "mi-primer-post",
-    "excerpt": "Cómo monté un blog 100% estático sin frameworks."
+    "title":"Mi primer post",
+    "date":"2025-09-20",
+    "slug":"mi-primer-post",
+    "excerpt":"Cómo monté un blog 100% estático sin frameworks."
   },
   {
-    "title": "Otro post",
-    "date": "2025-09-22",
-    "slug": "otro-post",
-    "excerpt": "Buenas prácticas de HTML, CSS y JS vanilla."
+    "title":"Otro post",
+    "date":"2025-09-22",
+    "slug":"otro-post",
+    "excerpt":"Buenas prácticas de HTML, CSS y JS vanilla."
   }
 ]

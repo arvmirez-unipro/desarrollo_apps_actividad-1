@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Otro post — Mi Blog</title>
+    <link rel="stylesheet" href="../../styles.css">
+</head>
+<body>
+<header class="site-header">
+    <h1><a href="../../">Mi Blog</a></h1>
+    <div class="actions">
+        <a class="btn" href="../../">← Volver</a>
+    </div>
+</header>
+
+<main>
+    <article class="card">
+        <h1>Otro post</h1>
+        <time datetime="2025-09-22" class="muted">22 de septiembre de 2025</time>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent efficitur, neque in placerat
+            rhoncus, turpis lorem bibendum arcu, at fringilla magna massa vitae arcu. Integer at ornare nisl,
+            a fermentum arcu.</p>
+        <p>Nulla facilisi. Sed vitae nisi in ipsum aliquam tristique. Aliquam erat volutpat. Donec convallis
+            dapibus lectus, vitae suscipit nunc volutpat eget. Nam malesuada, tortor et facilisis aliquet,
+            nibh ipsum ultricies lectus, non dictum nunc ipsum vitae nibh.</p>
+        <h2>Subtítulo de ejemplo</h2>
+        <p>Curabitur non massa ac metus sollicitudin eleifend. Donec sit amet mi id tortor feugiat dapibus.
+            Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+            Suspendisse potenti. Maecenas consequat, odio vel consequat bibendum, augue massa varius sem,
+            non dictum urna nisl in velit.</p>
+
+        <hr>
+        <p class="muted"><button id="copyLink">Copiar enlace</button></p>
+    </article>
+</main>
+
+<footer class="site-footer"><small>Made with VanillaJs, HTML & CSS</small></footer>
+
+<script>
+    document.getElementById("copyLink").addEventListener("click", async ()=>{
+        await navigator.clipboard.writeText(location.href);
+        alert("Enlace copiado al portapapeles");
+    });
+</script>
+</body>
+</html>

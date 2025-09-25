@@ -7,6 +7,7 @@ fetch("posts.json")
     .then(json => { POSTS = json.sort((a,b)=> new Date(b.date)-new Date(a.date)); render(POSTS); });
 
 function render(items){
+  console.log('klkl', items);
   list.innerHTML = items.map(p => `
     <article class="card">
       <h2><a href="posts/${p.slug}/">${p.title}</a></h2>
